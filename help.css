@@ -1,0 +1,23 @@
+*{
+  box-sizing: border-box;
+}
+ .box{
+ 	margin: 5px;
+ 	border: 5px solid green;
+
+ }
+ 	.box1{
+ 		margin: 5px;
+ 		border: 6px solid green;
+ 	}
+ 	.row{
+			display: flex;
+			flex-wrap: wrap;
+		}
+
+
+body{
+	background-image: url("Images/tomioka.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+}

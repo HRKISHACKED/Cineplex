@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE-edge">
+	<meta name="viewport" content="width-device-width,initial-scale+1.0">
+	<title></title>
+</head>
+<style>
+	*{
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+	}
+
+	.flex-direction-col{
+		flex-direction: column;
+	}
+	.justify-content{
+		justify-content: space-between;
+	}
+	.transition{
+		transition:500ms;
+	}
+	#darkmode{
+		background-color: var(--dark-body-color);
+	}
+	#darkmode .mode-btn{
+		background-color: var(--dark-bg-color);
+	}
+
+	#darkmode .card .details{
+		background-color: var(--dark-bg-color);
+	}
+	#darkmode .icon{
+		color: var(--dark-text-color);
+	}
+
+	#lightmode{
+		background-color: var(--light-body-color);
+	}
+
+	.active{
+		color: white;
+	}
+
+	.mode-btn{
+		border: none;
+		border-radius: 10px;
+		outline: none;
+		background-color:var(--light-bg-color);
+		font-weight: bold;
+		color: var(--light-text-color);
+		-webkit-box-shadow:0px 5px 10px 1px rgba(94,94,94,0.8);
+		box-shadow: 0px 5px 10px 1px rgba(94,94,94,0.8);
+		}
+	#mode>*{
+		display: inline-block;
+	}
+	#mode>*:hover{
+		cursor: pointer;
+	}
+	.card{
+		margin: 10px 5px;
+		background-color: var(--light-bg-color);
+		display: inline-block;
+		-webkit-box-shadow:0px 5px 10px 1px rgba(94,94,94,0.8);
+		box-shadow: 0px 5px 10px 1px rgba(94,94,94,0.8);
+		position: relative;
+		overflow: hidden;
+		border-radius: 15px;
+		color: var(--light-text-color);
+	}
+	.card:hover .details{
+		opacity: 1;
+		pointer-events: all;
+		transform: translateY(0);
+	}
+	.card .details{
+		opacity: 0;
+		pointer-events: none;
+		transform: translateY(-10px);
+		cursor: pointer;
+		position: absolute;
+		z-index: 1;
+		height: 100%;
+		width: 100%;
+		background-color: var(--light-bg-color);
+	}
+	.card .details>p{
+		margin: 10px;
+	}
+	.card .details .social-media{
+		position: inherit;
+		bottom: 20px;
+		width: 100%; 
+	}
+	.card .details .social-media a{
+		color: var(--light-text-color);
+	}
+	.icon{
+		font-size: 12rem;
+	}
+	.text{
+		text-align: center;
+	}
+
+</style>
+<body id="lightmode" class="transition" style="padding: 5px;">
+	<button class="mode-btn transition">
+		<span id="mode">
+			<i id="light" onclick="enableLightMode()" class="transition active p-10 fa-regular fa-sun fa-2x"></i>
+			<i id="light" onclick="enableDarkMode()" class="transition active p-10 fa-regular fa-moon fa-2x"></i>
+		</span>
+	</button>
+
+	<!--<div id="container" class="d-flex justify-content-between">
+		<a href="https://facebook.com"></a>
+		<a href="https://twiter.com"></a>
+		<a href="https://instagram.com"></a>
+		<a href="https://github.com"></a>
+	</div>
+	-->
+	<div id="conatiner" class="d-flex justify-content-between">
+	<div class="card transition ">
+		<div class="details transition">
+			<p style="text-align: center; font-weight: bolder;">Details</p><hr>
+			<p><b>Name: </b>Random Name</p>
+			<p><b>Address: </b>Address</p>
+			<p><b>Contact: </b>+977-9808100801</p>
+			<p><b> Email: </b>youremail@example.com</p>
+			<span class="social-media d-flex justify-content-center">
+				<a href="#">
+					<i class=" m-5 fa-brands fa-facebook"></i>
+				</a>
+				<a href="#">
+					<i class=" m-5 fa-brands fa-twitter"></i>
+				</a>
+				<a href="#">
+					<i class=" m-5 fa-brands fa-Instagram"></i>
+				</a>
+				<a href="#">
+					<i class=" m-5 fa-brands fa-github"></i>
+				</a>
+			</span>
+		</div>
+		<i class="icon transition fa-solid fa-user  p-10"></i>
+		<div class="text p-10">Someone's</div>
+	</div>
+</div> 
+</div>
+	<div id="conatiner" class="d-flex justify-content-between">
+	<div class="card transition ">
+		<div class="details transition">
+			<p style="text-align: center; font-weight: bolder;">Details</p><hr>
+			<p><b>Name: </b>Random Name</p>
+			<p><b>Address: </b>Address</p>
+			<p><b>Contact: </b>+977-9808100801</p>
+			<p><b> Email: </b>youremail@example.com</p>
+			<span class="social-media d-flex justify-content-center">
+				<a href="#">
+					<i class=" m-5 fa-brands fa-facebook"></i>
+				</a>
+				<a href="#">
+					<i class=" m-5 fa-brands fa-twitter"></i>
+				</a>
+				<a href="#">
+					<i class=" m-5 fa-brands fa-Instagram"></i>
+				</a>
+				<a href="#">
+					<i class=" m-5 fa-brands fa-github"></i>
+				</a>
+			</span>
+		</div>
+		<i class="icon transition fa-solid fa-user  p-10"></i>
+		<div class="text p-10">Someone's</div>
+	</div>
+</div> 
+</div>	
+	<div id="conatiner" class="d-flex justify-content-between">
+	<div class="card transition ">
+		<div class="details transition">
+			<p style="text-align: center; font-weight: bolder;">Details</p><hr>
+			<p><b>Name: </b>Random Name</p>
+			<p><b>Address: </b>Address</p>
+			<p><b>Contact: </b>+977-9808100801</p>
+			<p><b> Email: </b>youremail@example.com</p>
+			<span class="social-media d-flex justify-content-center">
+				<a href="#">
+					<i class=" m-5 fa-brands fa-facebook"></i>
+				</a>
+				<a href="#">
+					<i class=" m-5 fa-brands fa-twitter"></i>
+				</a>
+				<a href="#">
+					<i class=" m-5 fa-brands fa-Instagram"></i>
+				</a>
+				<a href="#">
+					<i class=" m-5 fa-brands fa-github"></i>
+				</a>
+			</span>
+		</div>
+		<i class="icon transition fa-solid fa-user  p-10"></i>
+		<div class="text p-10">Someone's</div>
+	</div>
+</div> 
+</div>	
+
+ 		<script type="text/javascript">
+ 			let dark_btn = document.querySelector("#dark");
+ 			let light_btn = document.querySelector("#light");
+ 			let body = document.querySelector("body");
+
+ 			changeBtnState();
+
+ 			function changeBtnState(){
+ 				if(body.id == "lightmode"){
+ 					light_btn.classList.add("active");
+ 					dark_btn.classList.remove("active");
+ 				}else{
+ 					dark_btn.classList.add("active");
+ 					light_btn.classList.remove("active");
+ 				}
+ 			}
+ 			 function enableDarkMOde(){
+ 			 	alert("Enabling Darkmode");
+ 			 	body.id = "darkmode";
+ 			 	changeBtnState();
+ 			 }
+
+ 			 function enableLightMOde(){
+ 			 	alert("Enabling Lightmode");
+ 			 	body.id = "lightmode";
+ 			 	changeBtnState();
+ 			 }g
+ 			
+ 		</script>
+
+</body>
+</html>

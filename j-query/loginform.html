@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="../basic.css">
+	<title></title>
+</head>
+<body>
+	<form id="loginform" action="profile.html">
+		<label for="">Email</label>
+		<input type="text" placeholder="Enter Email" name="email">
+		<label for="">Password</label>
+		<input type="password" placeholder="Enter Password" name="password">
+		<button type="submit">Login</button>
+	</form>
+	<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+	<script>
+
+			$(document).ready(function(){
+				$("#loginform").submit(function(e){
+					if(authentication() == false){	
+						e.preventDefault();
+						alert("Login Failed");
+				}
+
+			});
+		});
+		function authentication(){										
+			let email= "example@gmail.com";
+			let password="Example@1122";
+			let user_email = $("input[name=email]").val();
+			let user_password =$("input[name=password]").val();
+
+			if(email == user_email && password == user_password) {
+				return true;
+			}else{
+				return false;
+			}
+		}
+	</script>
+
+</body>
+</html>

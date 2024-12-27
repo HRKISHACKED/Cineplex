@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible"  content="IE=edge">
+	<meta  name="viewport" content="width=device-width , initial-scale=1.0">
+	<title>Document</title>
+</head>
+<style>
+	.alert{
+		display: none;
+	}
+	.alert-active{
+		display: block;
+	}
+</style>
+<body>
+	<div id="alert" class="alert"></div>
+	<label for="">num1:</label>
+	<input type="number" id="num1" name="num1">
+	<label for="">num2:</label>
+	<input type="number" id="num2"name="num2">
+
+	<button id="add" onclick="calculate(this)">Add</button>
+	<button id="difference" onclick="calculate(this)">Difference</button>
+	<button id="multiply" onclick="calculate(this)">Multiply</button>
+	<button id="division" onclick="calculate(this)">Division</button>
+
+	<script>
+		var alert = document.querySelector("#alert");
+
+		console.log(document)
+		function calculate(elem){
+			var action = elem.id;
+
+
+			switch(action){
+				case 'add':
+				     add();
+				     break;
+				 case 'difference':
+				     difference();
+				     break;
+				 case 'multiply':
+				     multiply();
+				     break;
+				 case 'division':
+				     division();
+				     break;
+			}
+		}
+
+		function add(){
+			var num1 = parseInt(document.querySelector("#num1").value);
+			var num2 = parseInt(document.querySelector("#num2").value);
+
+			var result = num1 + num2;
+			 // alert(result);
+			alert.textContent = result;
+			alert.classList.add("alert-active");
+
+		}
+		function difference(){
+			var num1 = parseInt(document.querySelector("#num1").value);
+			var num2 = parseInt(document.querySelector("#num2").value);
+
+			var result = num1 - num2;
+			 // alert(result);
+			alert.textContent = result;
+			alert.classList.add("alert-active");
+
+		}
+		function multiply(){
+			var num1 = parseInt(document.querySelector("#num1").value);
+			var num2 = parseInt(document.querySelector("#num2").value);
+
+			var result = num1 * num2;
+			 // alert(result);
+			alert.textContent = result;
+			alert.classList.add("alert-active");
+
+		}
+		function division(){
+			var num1 = parseInt(document.querySelector("#num1").value);
+			var num2 = parseInt(document.querySelector("#num2").value);
+
+			var result = num1 / num2;
+			 // alert(result);
+			alert.textContent = result;
+			alert.classList.add("alert-active");
+
+		}
+	</script>
+</body>
+</html>

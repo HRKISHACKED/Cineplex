@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change State</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        :root {
+            --light-bg-color: #D2D3DB;
+            --light-text-color: #4d4d4d;
+            --light-body-color: #bac0cc;
+
+            --dark-bg-color: #01182f;
+            --dark-text-color: #ddd;
+            --dark-body-color: #012344;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        .m-5 {
+            margin: 5px;
+        }
+
+        .m-10 {
+            margin: 10px;
+        }
+
+        .m-15 {
+            margin: 15px;
+        }
+
+        .p-10 {
+            padding: 10px;
+        }
+
+        .p-15 {
+            padding: 15px;
+        }
+
+        .d-flex {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .flex-direction-col {
+            flex-direction: column;
+        }
+
+        .justify-content-center {
+            justify-content: center;
+        }
+
+        .justify-content-between {
+            justify-content: space-between;
+        }
+
+        .transition {
+            transition: 500ms;
+        }
+
+        #darkmode {
+            background-color: var(--dark-body-color);
+        }
+
+        #darkmode .mode-btn {
+            background-color: var(--dark-bg-color);
+        }
+
+        #darkmode .card,
+        #darkmode .card .details .social-media a {
+            background-color: var(--dark-bg-color);
+            color: var(--dark-text-color);
+        }
+
+        #darkmode .card .details {
+            background-color: var(--dark-bg-color);
+        }
+
+        #darkmode .icon {
+            color: var(--dark-text-color);
+        }
+
+
+        #lightmode {
+            background-color: var(--light-body-color);
+        }
+
+        .active {
+            color: white;
+        }
+
+        .mode-btn {
+            border: none;
+            border-radius: 10px;
+            outline: none;
+            background-color: var(--light-bg-color);
+            font-weight: bold;
+            color: var(--light-text-color);
+            -webkit-box-shadow: 0px 5px 10px 1px rgba(94, 94, 94, 0.8);
+            box-shadow: 0px 5px 10px 1px rgba(94, 94, 94, 0.8);
+        }
+
+        #mode>* {
+            display: inline-block;
+        }
+
+        #mode>*:hover {
+            cursor: pointer;
+        }
+
+        .card {
+            margin: 10px 5px;
+            background-color: var(--light-bg-color);
+            display: inline-block;
+            border-radius: 15px;
+            color: var(--light-text-color);
+            -webkit-box-shadow: 0px 5px 10px 1px rgba(94, 94, 94, 0.8);
+            box-shadow: 0px 5px 10px 1px rgba(94, 94, 94, 0.8);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover .details {
+            opacity: 1;
+            pointer-events: all;
+            transform: translateY(0);
+        }
+
+        .card .details {
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(-10px);
+            cursor: pointer;
+
+            position: absolute;
+            z-index: 1;
+            height: 100%;
+            width: 100%;
+            background-color: var(--light-bg-color);
+        }
+
+        .card .details>p {
+            margin: 10px;
+        }
+
+        .card .details .social-media {
+            width: 100%;
+            position: inherit;
+            bottom: 20px;
+        }
+
+        .card .details .social-media a {
+            color: var(--light-text-color);
+        }
+
+        .icon {
+            font-size: 12rem;
+        }
+
+        .text {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body id="lightmode" class="transition" style="padding: 5px;">
+    <button class="mode-btn transition">
+        <span id="mode">
+            <i id="light" onclick="enableLightMode()" class="transition active p-10 fa-regular fa-sun fa-2x"></i>
+            <i id="dark" onclick="enableDarkMode()" class="transition p-10 fa-regular fa-moon fa-2x"></i>
+        </span>
+    </button>
+    <div id="container" class="d-flex justify-content-between">
+
+        <!-- 
+            <a href="https://facebook.com"></a>
+            <a href="https://twitter.com"></a>
+            <a href="https://instagram.com"></a>
+            <a href="https://github.com"></a>
+        -->
+
+        <div class="card transition ">
+            <div class="details transition">
+                <p style="text-align: center; font-weight: bolder;">Details</p>
+                <hr>
+                <p><b>Name: </b>Random Name</p>
+                <p><b>Address: </b>Address</p>
+                <p><b>Contact: </b>+977-9808100801</p>
+                <p><b>Email: </b>youremail@example.com</p>
+                <span class="social-media d-flex justify-content-center">
+                    <a href="#">
+                        <i class="m-5 fa-brands fa-facebook"></i>
+                    </a>
+                    <a href="#">
+                        <i class="m-5 fa-brands fa-twitter"></i>
+                    </a>
+                    <a href="#">
+                        <i class="m-5 fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="#">
+                        <i class="m-5 fa-brands fa-github"></i>
+                    </a>
+                </span>
+            </div>
+            <i class="icon transition fa-solid fa-user p-10"></i>
+            <div class="text p-10">Someone's Name</div>
+        </div>
+
+
+        <div class="card transition ">
+            <div class="details transition">
+                <p style="text-align: center; font-weight: bolder;">Details</p>
+                <hr>
+                <p><b>Name: </b>Random Name</p>
+                <p><b>Address: </b>Address</p>
+                <p><b>Contact: </b>+977-9808100801</p>
+                <p><b>Email: </b>youremail@example.com</p>
+                <span class="social-media d-flex justify-content-center">
+                    <a href="#">
+                        <i class="m-5 fa-brands fa-facebook"></i>
+                    </a>
+                    <a href="#">
+                        <i class="m-5 fa-brands fa-twitter"></i>
+                    </a>
+                    <a href="#">
+                        <i class="m-5 fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="#">
+                        <i class="m-5 fa-brands fa-github"></i>
+                    </a>
+                </span>
+            </div>
+            <i class="icon transition fa-solid fa-user p-10"></i>
+            <div class="text p-10">Someone's Name</div>
+        </div>
+
+
+        <div class="card transition ">
+            <div class="details transition">
+                <p style="text-align: center; font-weight: bolder;">Details</p>
+                <hr>
+                <p><b>Name: </b>Random Name</p>
+                <p><b>Address: </b>Address</p>
+                <p><b>Contact: </b>+977-9808100801</p>
+                <p><b>Email: </b>youremail@example.com</p>
+                <span class="social-media d-flex justify-content-center">
+                    <a href="#">
+                        <i class="m-5 fa-brands fa-facebook"></i>
+                    </a>
+                    <a href="#">
+                        <i class="m-5 fa-brands fa-twitter"></i>
+                    </a>
+                    <a href="#">
+                        <i class="m-5 fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="#">
+                        <i class="m-5 fa-brands fa-github"></i>
+                    </a>
+                </span>
+            </div>
+            <i class="icon transition fa-solid fa-user p-10"></i>
+            <div class="text p-10">Someone's Name</div>
+        </div>
+
+
+        <div class="card transition ">
+            <div class="details transition">
+                <p style="text-align: center; font-weight: bolder;">Details</p>
+                <hr>
+                <p><b>Name: </b>Random Name</p>
+                <p><b>Address: </b>Address</p>
+                <p><b>Contact: </b>+977-9808100801</p>
+                <p><b>Email: </b>youremail@example.com</p>
+                <span class="social-media d-flex justify-content-center">
+                    <a href="#">
+                        <i class="m-5 fa-brands fa-facebook"></i>
+                    </a>
+                    <a href="#">
+                        <i class="m-5 fa-brands fa-twitter"></i>
+                    </a>
+                    <a href="#">
+                        <i class="m-5 fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="#">
+                        <i class="m-5 fa-brands fa-github"></i>
+                    </a>
+                </span>
+            </div>
+            <i class="icon transition fa-solid fa-user p-10"></i>
+            <div class="text p-10">Someone's Name</div>
+        </div>
+
+
+        <div class="card transition ">
+            <div class="details transition">
+                <p style="text-align: center; font-weight: bolder;">Details</p>
+                <hr>
+                <p><b>Name: </b>Random Name</p>
+                <p><b>Address: </b>Address</p>
+                <p><b>Contact: </b>+977-9808100801</p>
+                <p><b>Email: </b>youremail@example.com</p>
+                <span class="social-media d-flex justify-content-center">
+                    <a href="#">
+                        <i class="m-5 fa-brands fa-facebook"></i>
+                    </a>
+                    <a href="#">
+                        <i class="m-5 fa-brands fa-twitter"></i>
+                    </a>
+                    <a href="#">
+                        <i class="m-5 fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="#">
+                        <i class="m-5 fa-brands fa-github"></i>
+                    </a>
+                </span>
+            </div>
+            <i class="icon transition fa-solid fa-user p-10"></i>
+            <div class="text p-10">Someone's Name</div>
+        </div>
+
+    </div>
+
+
+    <script>
+        let dark_btn = document.querySelector("#dark");
+        let light_btn = document.querySelector("#light");
+        let body = document.querySelector("body");
+
+
+        changeBtnState();
+
+        function changeBtnState() {
+            if (body.id == "lightmode") {
+                light_btn.classList.add("active");
+                dark_btn.classList.remove("active");
+            } else {
+                dark_btn.classList.add("active");
+                light_btn.classList.remove("active");
+            }
+        }
+
+        function enableDarkMode() {
+            alert("Enabling Darkmode");
+            body.id = "darkmode";
+            changeBtnState();
+        }
+
+
+        function enableLightMode() {
+            alert("Enabling Lightmode");
+            body.id = "lightmode";
+            changeBtnState();
+        }
+
+    </script>
+</body>
+
+</html>

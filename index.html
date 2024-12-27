@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="basic.css">
+	<link rel="stylesheet" type="text/css" href="fontawesome/css/all.css">
+	<style>
+		.nav-item {
+			color: var(--black);
+		}
+
+		#landing-section {
+			background-image: url(Images/telecom.jpg);
+			background-size: cover;
+			background-attachment: fixed;
+		}
+
+
+		#animation {
+			height: 1000px;
+			border: 1px solid black;
+			border-spacing: 15px;
+			animation-name: image;
+			animation-iteration-count: infinite;
+			animation-direction: alternate;
+			animation-timing-function: ease-in-out;
+			animation-duration: 15s;
+
+		}
+
+		@keyframes image {
+			0% {
+				background-image: url(Images/cinema2.jpg);
+				background-size: cover;
+				background-attachment: fixed;
+
+			}
+
+			25% {
+				background-image: url(Images/popcorn.jpg);
+				background-size: cover;
+				background-attachment: fixed;
+			}
+
+			50% {
+				background-image: url(Images/movie.jpg);
+				background-size: cover;
+				background-attachment: fixed;
+			}
+
+			75% {
+				background-image: url(Images/cinema2.jpg);
+				background-size: cover;
+				background-attachment: fixed;
+			}
+
+			100% {
+				background-image: url(Images/popcorn.jpg);
+				background-size: cover;
+				background-attachment: fixed;
+			}
+		}
+	</style>
+
+
+
+</head>
+
+<body class="background">
+	<img src="Images/logo.png" class="logo">
+	<div class="banner-text">
+	</div>
+	<nav class="d-flex justify-content-between bg-secondary">
+		<a href="back.html">
+			<div class="  p-10 nav-item border  active ">
+				<i class="fa-solid fa-arrow-left fa-beat"></i>
+				Back
+			</div>
+		</a>
+		<div class="d-flex">
+			<a href="home.html">
+				<div class="p-10 nav-item border active">
+					<i class="fa-solid fa-house fa-beat"></i>
+					Home
+				</div>
+			</a>
+			<a href="contact.html">
+				<div class="  p-10 nav-item border active ">
+					<i class="fa-brands fa-contao fa-beat"></i>
+					Contact
+				</div>
+			</a>
+			<a href="about.html">
+				<div class="  p-10 nav-item border active ">
+					<i class="fa-regular fa-eye fa-beat"></i>
+					About
+				</div>
+			</a>
+			<a href="login.html">
+
+				<div class="  p-10 nav-item border active">
+					<i class="fa-regular fa-user fa-beat"></i>
+					Login
+				</div>
+			</a>
+		</div>
+	</nav>
+	<div id="animation"></div>
+
+</body>
+
+</html>
